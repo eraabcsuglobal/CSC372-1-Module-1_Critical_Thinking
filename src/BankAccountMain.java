@@ -1,3 +1,5 @@
+import javax.swing.JFrame;
+
 public class BankAccountMain {
 	
 	public static void main(String[] args) {
@@ -12,12 +14,12 @@ public class BankAccountMain {
 		checkingAccount.setLastName(bankAccount.getLastName());
 		checkingAccount.setAccountID(bankAccount.getAccountID());
 		
-		// test deposit method
-		checkingAccount.deposit(300.50);
-		// test withdrawal and overdraft logic
-		checkingAccount.processWithdrawal(500);
+		// NEW created GUI class to improve useability
+		CheckingAccountBalance checkingAccountBalance = new CheckingAccountBalance(checkingAccount);
+		checkingAccountBalance.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		checkingAccountBalance.pack();
+		checkingAccountBalance.setVisible(true);
 		
-		System.out.print("Checking Account: ");
 		checkingAccount.displayAccount();
 		
 	}
